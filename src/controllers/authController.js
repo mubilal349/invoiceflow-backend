@@ -83,8 +83,13 @@ export const register = async (req, res) => {
 
 export const login = async (req, res) => {
   try {
-    // Get email and password from request body
-    const { email, password } = req.body;
+    console.log("========== LOGIN REQUEST ==========");
+    console.log("Method:", req.method);
+    console.log("URL:", req.originalUrl);
+    console.log("Content-Type:", req.headers["content-type"]);
+    console.log("Request Body:", req.body);
+
+    const { email, password } = req.body || {};
 
     // Validate input
     if (!email || !password) {
